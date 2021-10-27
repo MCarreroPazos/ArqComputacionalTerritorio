@@ -1,0 +1,7 @@
+# BarbanzaVisualModels
+Este repositorio contiene los datos arqueológicos y métodos analíticos para reproducir la investigación contenida en el "Capítulo 7 · Un caso práctico. Modelos de procesos de puntos para el estudio del Megalitismo de A Serra do Barbanza (Noroeste de la Península Ibérica). ", perteneciente al libro Carrero-Pazos, M. (2021). *Arqueología del Paisaje Computacional. Métodos y técnicas para estudiar decisiones humanas en paisajes pretéritos*, Oxford. Archaeopress.
+
+*** Both data and methods used here are released under the CC-BY4.0 license and the R code under the MIT license.
+
+
+
