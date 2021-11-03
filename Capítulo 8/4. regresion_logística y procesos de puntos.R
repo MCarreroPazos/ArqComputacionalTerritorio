@@ -14,7 +14,7 @@
 # Cargar los paquetes de trabajo
 spatpack<-c("raster","spatstat","rgdal","maptools",
             "sf", "MASS", "RColorBrewer", "virtualspecies",
-            "onpoint", "cowplot")
+            "onpoint", "cowplot", "ggplot2")
 lapply(spatpack, require, character.only=TRUE)
 
 # Establecer el directorio de datos
@@ -72,8 +72,6 @@ names(covar_list_mod1) <- c("i_prom_topo_im", "prom_visual_im", "dens_rutas_im",
 mod1_efectos_primer_orden <- ~ i_prom_topo_im + prom_visual_im + dens_rutas_im + dem_im
 
 ## Crear los modelos de simulación estadística
-# Modelo nulo (comparación)
-
 # Modelo 1 (efectos de primer orden)
 mod1 <- step(ppm(sppp_castros, trend = mod1_efectos_primer_orden, 
                  interaction = NULL, 
@@ -145,7 +143,8 @@ plot1 <- plot_quantums(Pcfinhom_mod1,
                        quantum_position = 0,
                        quantum=T,
                        base_size = 10,
-                       title="a. Efectos de primer orden")
+                       title="a. Efectos de primer orden") +
+                       scale_x_continuous(limits = c(0, 8000))
 plot2 <- plot_quantums(Pcfinhom_mod2A, 
                        xlab = "Distancia entre puntos (r)",
                        ylab = "ginhom(r)",
@@ -157,7 +156,8 @@ plot2 <- plot_quantums(Pcfinhom_mod2A,
                        quantum=T,
                        base_size = 10,
                        title="b. Efectos de primer y segundo orden\n Interacción AreaInter (r = 1000)",
-                       legend_position = "none")
+                       legend_position = "none") +
+                       scale_x_continuous(limits = c(0, 8000))
 plot3 <- plot_quantums(Pcfinhom_mod2B, 
                        xlab = "Distancia entre puntos (r)",
                        ylab = "ginhom(r)",
@@ -169,7 +169,8 @@ plot3 <- plot_quantums(Pcfinhom_mod2B,
                        quantum=T,
                        base_size = 10,
                        title="c. Efectos de primer y segundo orden\n Interacción Hardcore (hc = 200)",
-                       legend_position = "none")
+                       legend_position = "none") +
+                       scale_x_continuous(limits = c(0, 8000))
 ggdraw() +
   draw_plot(plot1, 0, .5, 1, .5) +
   draw_plot(plot2, 0, 0, .5, .5) +
