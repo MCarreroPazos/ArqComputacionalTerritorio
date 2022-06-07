@@ -7,9 +7,6 @@
 # install.packages("remotes")
 # remotes::install_github("adamlilith/fasterRaster")
 
-# Establecer el directorio para GRASS (en Mac en este caso)
-grassDir <- "/Applications/GRASS-7.8.app/Contents/Resources"
-
 # Establecer el directorio de datos
 sourcedir <- file.path("data","raw_data")
 targetdir <- file.path("data","derived_data")
